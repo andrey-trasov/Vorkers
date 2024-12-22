@@ -1,6 +1,7 @@
 from django.db import models
 
-class Vorkers(models.Model): # фио номе бригады зп специализация
+
+class Vorkers(models.Model):  # фио номе бригады зп специализация
     full_name = models.CharField(max_length=150, verbose_name="ФИО")
     team_number = models.IntegerField(verbose_name="номер бригады")
     salary = models.IntegerField(verbose_name="зарплата")

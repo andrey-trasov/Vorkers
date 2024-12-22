@@ -8,24 +8,25 @@ from vorkers.models import Vorkers
 class VorkersTestCase(APITestCase):
 
     def setUp(self):
-       """
-       создаем бд
-       """
-       self.vorkers = Vorkers.objects.create(full_name='Иванов', team_number='1', salary='10000', specialization='Черновая отделка')
-
-
+        """
+        создаем бд
+        """
+        self.vorkers = Vorkers.objects.create(
+            full_name="Иванов",
+            team_number="1",
+            salary="10000",
+            specialization="Черновая отделка",
+        )
 
     def test_VorkersRetrieveAPIView(self):
         """
         Проверяем получение мастера
         """
-        url = reverse('api:vorker', args=(self.vorkers.id,))
+        url = reverse("api:vorker", args=(self.vorkers.id,))
         response = self.client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data['full_name'], self.vorkers.full_name)
-        self.assertEqual(response.data['specialization'], self.vorkers.specialization)
-
-
+        self.assertEqual(response.data["full_name"], self.vorkers.full_name)
+        self.assertEqual(response.data["specialization"], self.vorkers.specialization)
 
     def test_TeamVorkersListAPIView(self):
         """

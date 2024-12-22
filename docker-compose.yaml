@@ -1,0 +1,17 @@
+services:    #сервисы для запуска
+
+
+ app:    #контейнер с приложением
+   build: .    #указывает на текущую директорию, где находится Dockerfile
+   tty: true    #интерактивный режим
+   ports:
+     - "8000:8000"
+   environment:
+     - POETRY_VIRTUALENVS_CREATE=false
+   command: poetry run sh -c "python manage.py runserver 0.0.0.0:8000"
+
+   volumes:
+     - .:/app
+
+volumes:
+ pg_data:

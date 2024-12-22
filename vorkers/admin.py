@@ -6,4 +6,4 @@ from vorkers.models import Vorkers
 
 @admin.register(Vorkers)
 class VorkersAdmin(admin.ModelAdmin):
-   list_display = ("full_name", "team_number", "salary", "specialization")
+    list_display = ("full_name", "team_number", "salary", "specialization")
